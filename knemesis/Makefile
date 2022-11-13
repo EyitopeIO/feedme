@@ -13,7 +13,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/knemesis
 	SECTION:=Nextion
-	DEPENDS:=+kmod-knemesisk
+	DEPENDS:=+kmod-knemesisk +libc +libstdcpp
 	TITLE:=Nextion display server
 	URL:=https://github.com/EyitopeIO/knemesis
 endef
