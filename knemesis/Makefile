@@ -1,6 +1,4 @@
 include $(TOPDIR)/rules.mk
-include $(INCLUDE_DIR)/kernel.mk
-include $(INCLUDE_DIR)/KernelPackage.mk
 
 
 PKG_NAME:=knemesis
@@ -12,16 +10,18 @@ PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/knemesisk
-  TITLE:=Nextion display driver
-  DEPENDS:=+kmod-knemesis
-  FILES:=$(PKG_BUILD_DIR)/knemesis.ko
+
+define Package/knemesis
+  SECTION:=Nextion
+  DEPENDS:=+kmod-knemesisk
+  TITLE:=Nextion display server
+  URL:=https://github.com/EyitopeIO/knemesis
 endef
 
-define Package/knemesisk/description
-	Kernel module for Nextion Basic
+
+define Package/knemesis/description
+	Display server (compositor) for Nextion basic
 endef
 
 
-
-$(eval $(call Package,knemesisk))
+$(eval $(call BuildPackage,knemesis))
