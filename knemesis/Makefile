@@ -19,6 +19,11 @@ define Package/knemesis
 endef
 
 
+define Package/knemesis/install
+  $(INSTALL_BIN) $(PKG_BUILD_DIR)/knemesis $(1)/usr/bin/knemesis
+endef
+
+
 define Package/knemesis/description
 	Display server (compositor) for Nextion basic
 endef
