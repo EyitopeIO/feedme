@@ -12,15 +12,16 @@ include $(INCLUDE_DIR)/package.mk
 
 
 define Package/knemesis
-  SECTION:=Nextion
-  DEPENDS:=+kmod-knemesisk
-  TITLE:=Nextion display server
-  URL:=https://github.com/EyitopeIO/knemesis
+	SECTION:=Nextion
+	DEPENDS:=+kmod-knemesisk
+	TITLE:=Nextion display server
+	URL:=https://github.com/EyitopeIO/knemesis
 endef
 
 
 define Package/knemesis/install
-  $(INSTALL_BIN) $(PKG_BUILD_DIR)/knemesis $(1)/usr/bin/knemesis
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/knemesis $(1)/usr/bin/knemesis
 endef
 
 
