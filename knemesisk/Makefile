@@ -19,6 +19,13 @@ define KernelPackage/knemesisk
 endef
 
 
+define Build/Compile
+  $(MAKE) -C "$(LINUX_DIR)" \
+    $(KERNEL_MAKE_FLAGS) \
+    SUBDIRS="$(PKG_BUILD_DIR)"
+endef
+
+
 define KernelPackage/knemesisk/description
   Kernel module for Nextion basic
 endef
